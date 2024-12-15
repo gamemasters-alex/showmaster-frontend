@@ -33,4 +33,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: showmaster-installer
-        path: release/*.exe
+        path: release/
