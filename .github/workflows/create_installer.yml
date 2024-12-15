@@ -1,0 +1,36 @@
+name: Build Windows Installer
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build the App
+      run: npm run build
+
+    - name: Package Windows Installer
+      run: |
+        npm install electron-builder
+        npx electron-builder --windows nsis --publish never
+
+    - name: Upload Installer to Release
+      uses: actions/upload-artifact@v3
+      with:
+        name: showmaster-installer
+        path: release/*.exe
