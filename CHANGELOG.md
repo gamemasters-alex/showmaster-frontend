@@ -1,3 +1,9 @@
+# 2.2.0
+
+- Changed mongo-db-connection
+- changed 'devEngines' to 'engines' in node file
+- 
+
 # 2.1.0
 
 - Migrate to `css-minifier-webpack-plugin`
