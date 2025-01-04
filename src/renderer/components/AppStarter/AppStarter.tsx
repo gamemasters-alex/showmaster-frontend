@@ -23,12 +23,17 @@ function AppStarter() {
 
       if (response.data) {
         const user = response.data as User;
+
+/*      Commented out because of bugs initating various devices.
         dispatch(setUser(user));
         dispatch(setGameUser(user));
         if (user?.id) {
           dispatch(connectToHub(`${config.apiUrl}/hub?userId=${user?.id}&studioId=${user?.studioId}`));
         }
-        navigateToStartPage(user.role, navigate);
+        navigateToStartPage(user.role, navigate);*/
+
+        // New behaviour should trigger reset/update of user with new start of application
+        navigate(RouteDefinitions.AppSettings, { replace: true });
       } else {
         navigate(RouteDefinitions.AppSettings, { replace: true });
       }

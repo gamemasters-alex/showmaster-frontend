@@ -1,4 +1,4 @@
-import { HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
+import { HubConnection, HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
 import { createSlice } from '@reduxjs/toolkit';
 import { RouteDefinitions } from '../renderer/App';
 import { navigateTo } from '../services/navigation-service';
@@ -37,9 +37,15 @@ export const sendMessage = (methodName: string, ...args: any[]) => {
 };
 
 export const connectToHub = (hubUrl: string) => (dispatch: any) => {
+  // if (hubConnection?.state === 'Connected') {
+  //   console.log('WebSocket connection already established.');
+  //   return; // Avoid multiple connections
+  // }
+
   const hubConnectionSetup = new HubConnectionBuilder();
 
   hubConnectionSetup.withUrl(hubUrl);
+  hubConnectionSetup.configureLogging(LogLevel.Debug) // Enable detailed logging
   hubConnectionSetup.withAutomaticReconnect();
 
   hubConnection = hubConnectionSetup.build();
