@@ -104,7 +104,7 @@ const BuzzerQuestionHost: React.FC<ActionButtonsInBuzzerQuestionProps> = ({ ques
 
   return (
     <div className={styles.buzzerQuestion}>
-      <Timer initialSeconds={showGame?.timeToAnswer || 7} isAnswered={isAnswered} />
+      <Timer initialSeconds={showGame?.timeToAnswer || 5} isAnswered={isAnswered} />
       <div className={styles.scoreBoard}>
         {connectedTeams?.map((team) => (
           <div key={team.id.toString()} className={styles.team}>

@@ -120,7 +120,7 @@ function AppSettings() {
   };
 
   const handlePasswordSubmit = () => {
-    if (passwordInput === 'pa$$w0rd') {
+    if (passwordInput === 'pw') {
       setIsAuthorized(true);
       setError(null);
       return;

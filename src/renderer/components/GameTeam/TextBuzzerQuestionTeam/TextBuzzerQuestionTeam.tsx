@@ -31,7 +31,7 @@ function TextBuzzerQuestionTeam() {
               Just update showGame with questions when PlayGameTeam and PlayGameHost event called.
               PlayGameTeam and PlayGameHost can be merged to one event.
             */}
-            <Timer initialSeconds={7} isAnswered={!!teamScoredId}></Timer>
+            <Timer initialSeconds={5} isAnswered={!!teamScoredId}></Timer>
           </div>
         )}
         {questionPickedByTeam && !teamShouldAnswerQuestion && <div>Opponent buzzered first!</div>}

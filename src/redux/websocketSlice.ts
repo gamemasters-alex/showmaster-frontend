@@ -37,10 +37,10 @@ export const sendMessage = (methodName: string, ...args: any[]) => {
 };
 
 export const connectToHub = (hubUrl: string) => (dispatch: any) => {
-  // if (hubConnection?.state === 'Connected') {
-  //   console.log('WebSocket connection already established.');
-  //   return; // Avoid multiple connections
-  // }
+  if (hubConnection?.state === 'Connected') {
+     console.log('WebSocket connection already established.');
+     return; // Avoid multiple connections
+  }
 
   const hubConnectionSetup = new HubConnectionBuilder();
 

@@ -43,6 +43,8 @@ export const gameSlice = createSlice({
     pickQuestion: (state, action: PayloadAction<string | null>) => {
       if (!state.user) return;
 
+      // ADD SOUND HERE
+
       state.currentQuestion = {
         ...state.currentQuestion,
         questionPickedByTeam: true,
